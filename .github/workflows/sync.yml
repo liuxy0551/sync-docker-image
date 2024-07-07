@@ -13,11 +13,11 @@ on:
       source_repo:
         description: '仓库 (格式 repo)'
         required: true
-        default: ''
+        default: 'liuxy0551/yice-mysql:amd64'
       destination_scope:
         description: '目标Scope (格式 scope)'
         required: true
-        default: ''
+        default: 'liuxy0551/yice-mysql:amd64'
 
 jobs:
   sync:
