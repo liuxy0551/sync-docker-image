@@ -1,30 +1,30 @@
-name: Sync Docker Images
+name: Sync Image All Tags
 run-name: Sync ${{ inputs.source_repo }} to ${{ inputs.destination_scope }}
 on: 
   workflow_dispatch:
     inputs:
       source:
-        description: '镜像源 (Registry)'     
+        description: '来源仓库 (Registry)'     
         required: true
         default: 'docker.io'
       destination:
-        description: '目标源 (Registry)'
+        description: '目标仓库 (Registry)'
         required: true
         default: 'registry.cn-hangzhou.aliyuncs.com'
       source_repo:
-        description: '来源仓库 (格式 repo)'
+        description: '来源镜像 (格式 repo)'
         required: true
         default: 'liuxy0551/yice-mysql'
       destination_scope:
-        description: '目标Scope (格式 scope)'
+        description: '目标 Scope (格式 scope)'
         required: true
-        default: 'liuxy0551/yice-mysql'
+        default: 'liuxy0551'
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - name: Sync Docker Images
+    - name: Sync Image All Tags
       uses: ikrong/docker-sync-action@main
       with:
         source: ${{ github.event.inputs.source }}
