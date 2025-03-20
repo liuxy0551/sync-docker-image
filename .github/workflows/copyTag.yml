@@ -1,4 +1,4 @@
-name: Copy Docker Image
+name: Copy Docker Image Tag
 run-name: Copy ${{ inputs.source_repo }} to ${{ inputs.destination_repo }}
 on: 
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
         required: true
         default: 'registry.cn-hangzhou.aliyuncs.com'
       source_repo:
-        description: '仓库及标签 (格式 repo:tag)'
+        description: '来源仓库及标签 (格式 repo:tag)'
         required: true
         default: 'liuxy0551/yice-mysql:amd64'
       destination_repo:
@@ -24,7 +24,7 @@ jobs:
   copy:
     runs-on: ubuntu-latest
     steps:
-    - name: Copy Docker Images
+    - name: Copy Docker Image Tag
       uses: ikrong/docker-sync-action@main
       with:
         source: ${{ github.event.inputs.source }}
