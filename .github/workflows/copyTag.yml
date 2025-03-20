@@ -1,4 +1,4 @@
-name: Copy Docker Image Tag
+name: Copy Image Tag
 run-name: Copy ${{ inputs.source_repo }} to ${{ inputs.destination_repo }}
 on: 
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
   copy:
     runs-on: ubuntu-latest
     steps:
-    - name: Copy Docker Image Tag
+    - name: Copy Image Tag
       uses: ikrong/docker-sync-action@main
       with:
         source: ${{ github.event.inputs.source }}
